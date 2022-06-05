@@ -86,6 +86,61 @@ function getDetails(slug){
 
 // Show Details
 function showDetails(data){
-    const resultContainer = document.querySelector('.details-container');
+    let {image, brand, name, releaseDate, mainFeatures, others} = data;
+    let {chipSet, displaySize, memory, storage, sensors} = mainFeatures;
+    let {Bluetooth, GPS, NFC, Radio, USB, WLAN} = others;
+    let allSensors = '';
+    
+    for (let i = 0; i < sensors.length; i++) {
+        allSensors += sensors[i]+', ';
+    }
+
+    console.log(allSensors);
+    const detailsContainer = document.querySelector('.details-container');
+        detailsContainer.innerHTML = `<div class="details-inner"> 
+                                        <div class="inner"> 
+                                            <div class="img-box"> 
+                                                <img src="${image}" alt="">
+                                            </div>
+                                            <div class="text-box"> 
+                                                <h2 class="brand">${brand}</h2>
+                                                <h1 class="model">${name}</h1>
+                                        
+                                                <ul class="futures-list"> 
+                                                    <h4 class="list-title">Main Futures</h4>
+                                                    <li class="futures"><span>Storage:</span> ${storage}</li>
+                                                    <li class="futures"><span>Display:</span> ${displaySize}</li>
+                                                    <li class="futures"><span>Memory:</span> ${memory}</li>
+                                                    <li class="futures"><span>Chipset:</span> ${chipSet}</li>
+                                                    <li class="futures"><span>Sensors:</span> ${allSensors}</li>
+                                                </ul>
+                                        
+                                                <ul class="futures-list"> 
+                                                    <h4 class="list-title">Other Futures</h4>
+                                                    <li class="futures"><span>Bluetooth:</span> ${Bluetooth}</li>
+                                                    <li class="futures"><span>GPS:</span> ${GPS}</li>
+                                                    <li class="futures"><span>NFC:</span> ${NFC}</li>
+                                                    <li class="futures"><span>Radio:</span> ${Radio}</li>
+                                                    <li class="futures"><span>USB:</span> ${USB}</li>
+                                                    <li class="futures"><span>WLAN:</span> ${WLAN}</li>
+                                                </ul>
+                                        
+                                                <h4 class="release-date">${releaseDate}</h4>
+                                            </div>
+
+                                            <button class="close" onclick="hideDetails(); return false;" >x</button>
+                                        </div>
+                                    </div>`;
+
+    
+
     console.log(data);
+}
+
+// Hide Details
+function hideDetails(){
+    const detailsContainer = document.querySelector('.details-container');
+        detailsContainer.innerHTML = '';
+
+        console.log('sasd');
 }
