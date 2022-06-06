@@ -252,3 +252,33 @@ body{
 .details-container .inner .text-box::-webkit-scrollbar-thumb{
     background: #ff7f35;
 }
+
+
+@media (max-width: 850px) {
+    .container{
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .container{
+        padding: 2rem;
+    }
+
+    .card-container {
+        justify-content: center;
+    }
+
+    .details-container .inner {
+        flex-direction: column;
+        justify-content: start;
+        width: 374px;
+        height: 500px;
+        overflow-y: scroll;
+    }
+
+    .details-container .inner .text-box {
+        height: 700px;
+        overflow-y: initial;
+    }
+}
