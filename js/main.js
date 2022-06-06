@@ -138,6 +138,4 @@ function showDetails(data){
 function hideDetails(){
     const detailsContainer = document.querySelector('.details-container');
         detailsContainer.innerHTML = '';
-
-        console.log('sasd');
 }
